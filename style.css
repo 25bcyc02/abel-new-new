@@ -1,0 +1,78 @@
+:root {
+    --neon-green: #00ff41;
+    --dark-bg: #0a0a0a;
+    --card-bg: #141414;
+    --terminal-font: 'Fira Code', monospace;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--neon-green);
+    font-family: var(--terminal-font);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Adds a flickering 'old monitor' effect */
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: fixed;
+    bottom: 100%;
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { bottom: 100%; }
+    100% { bottom: -100%; }
+}
+
+header {
+    padding: 60px 20px;
+    border-bottom: 1px solid var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.auth-status { font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px; }
+
+.container { max-width: 800px; margin: 20px auto; padding: 20px; }
+
+section {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2 { font-size: 1.2rem; color: #fff; background: #333; display: inline-block; padding: 5px 15px; margin-bottom: 20px; }
+
+.prompt { color: #fff; font-weight: bold; }
+
+input, textarea {
+    background: #000;
+    border: 1px solid #333;
+    color: var(--neon-green);
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--terminal-font);
+}
+
+input:focus { border-color: var(--neon-green); outline: none; }
+
+button {
+    background: var(--neon-green);
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover { background: #fff; box-shadow: 0 0 20px var(--neon-green); }
